@@ -8,7 +8,7 @@ License: Private
 
 == Description ==
 
-This is a personal theme for my blog and podcast site, Polygoing.com. Goals of the project included 1) goofing around with custom themes, 2) trying to make something minimalistic, mobile-friendly and uncluttered, and 3) playing around with WP plugins after being away from the platform for a long while ... which seem to be as bossy and badly-designed as I remember.
+This is a personal theme for my blog and podcast site. Goals of the project included 1) goofing around with custom themes, 2) trying to make something minimalistic, mobile-friendly and uncluttered, and 3) playing around with WP plugins after being away from the platform for a long while ... which seem to be as bossy and badly-designed as I remember.
 
 It is by no means a "complete" theme; I built the thing to serve the specific needs I had in standing up a WP installation and making it look the way I wanted, including and creating only the pages and styles I had use for.
 
