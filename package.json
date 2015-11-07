@@ -1,0 +1,46 @@
+{
+  "name": "polyphil",
+  "version": "0.1.0",
+  "description": "A personal theme I built from scratch for my blog/podcast site that's intended to be minimalistic, mobile-friendly and uncluttered.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/phillipluther/polyphil.git"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "basic",
+    "blog",
+    "podcast",
+    "audio",
+    "responsive"
+  ],
+  "author": "Phillip Luther",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/phillipluther/polyphil/issues"
+  },
+  "homepage": "https://github.com/phillipluther/polyphil#readme",
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-less": "^3.0.3",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.4.2",
+    "gulp-util": "^3.0.7",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "del": "^2.0.2"
+  }
+}

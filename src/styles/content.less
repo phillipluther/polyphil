@@ -1,0 +1,70 @@
+/**
+ * @file src/styles/content.less
+ * @description
+ *      Our stylesheet fragment that governs the content (posts, pages, etc.).
+ */
+.content-wrapper {
+    .layoutCentered();
+    width: @size-layoutWidth;
+
+    .content {
+        .cleared();
+    }
+
+    .post-wrapper {
+        position: relative;
+        padding-bottom: @size-marginBase;
+        margin-bottom: @size-marginBase;
+        border-bottom: 1px solid @color-baseLighter;
+
+        .more-prompt {
+            font-family: 'ArimoBold';
+            margin-top: @size-marginBase / 2;
+
+            .more-link {
+                border: 0;
+            }
+        }
+    }
+
+    .post-title {
+        .fontLargest();
+        margin-bottom: @size-marginBase / 2;
+
+        a {
+            display: block;
+            color: @color-accent;
+            border: 0;
+
+            &:hover,
+            &:focus {
+                color: @color-accentHover;
+            }
+        }
+    }
+
+    .post-details {
+        .fontSmaller();
+        .textHidden();
+        margin-bottom: @size-marginBase / 3;
+
+        a {
+            border: 0;
+        }
+
+        .author {
+            display: none;
+        }
+
+        .timestamp {
+            .fontSmaller();
+            color: @color-base;
+        }
+    }
+
+    .feedback {
+        .fontStandard();
+        color: @color-base;
+        font-family: 'ArimoBold';
+    }
+}
