@@ -35,8 +35,17 @@
     .fontSmall(@size-buttonHeight);
     padding: 0 @size-marginBase / 2;
     border: 1px solid @color-baseLight;
-    background: @color-baseLighter;
+    background: @color-baseLightest;
     cursor: pointer;
+
+    &:hover,
+    &:focus {
+        background: @color-baseLighter;
+    }
+
+    &:active {
+        background: @color-baseLightest;
+    }
 }
 
 .cleared(@width:100%) {

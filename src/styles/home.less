@@ -1,0 +1,51 @@
+/**
+ * @file src/styles/home.less
+ * @description
+ *      Definitions and visual stylings specific to our home page (home.php).
+ */
+.home-wrapper {
+    .bottomBordered() {
+        border-bottom: 1px solid @color-baseLighter;
+        padding-bottom: @size-marginBase;
+    }
+
+    .cleared();
+
+    .page-header {
+        font-size: 19px;
+        margin-top: -20px;
+        margin-bottom: @size-marginBase;
+        font-style: italic;
+        color: @color-base;
+    }
+
+    .recent-item-heading {
+        .fontStandard();
+        .bottomBordered();
+    }
+
+    .recent-item-wrapper {
+        margin: @size-marginBase 0;
+        .bottomBordered();
+
+        .recent-item-title {
+            //margin-top: 5px;
+        }
+
+        .recent-item-link {
+            .fontLargest();
+            border: 0;
+        }
+
+        .recent-item-date {
+            .fontSmaller();
+            //margin-top: 5px;
+            color: @color-base;
+        }
+
+        .more-link {
+            border: 0;
+            font-family: 'ArimoBold';
+        }
+    }
+}

@@ -17,7 +17,7 @@
             </a>
 
             <p xmlns:dct="http://purl.org/dc/terms/" class="license-text" property="dct:title">
-                All site content is licensed under a 
+                All podcast and blog content is licensed under a 
 
                 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
                     Creative Commons Attribution-NonCommercial 4.0 International License

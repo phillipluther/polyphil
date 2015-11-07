@@ -28,7 +28,12 @@
         <div class="content">
 
 <?php 
-    if (have_posts()) : while (have_posts()) : the_post(); 
+    // if this is our home page, include our home template
+    if (is_front_page()) {
+        get_template_part('home', 'none');
+
+    // if this is a feed/archive/post, display the posts
+    } else if (have_posts()) : while (have_posts()) : the_post(); 
         // {{{
 ?>
 
