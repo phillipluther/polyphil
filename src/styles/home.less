@@ -19,33 +19,67 @@
         color: @color-base;
     }
 
-    .recent-item-heading {
-        .fontStandard();
-        .bottomBordered();
-    }
+    .widget-area {
+        @offset: ceil(@size-marginBase / 2);
 
-    .recent-item-wrapper {
-        margin: @size-marginBase 0;
-        .bottomBordered();
+        .cleared();
+        margin-bottom: @size-marginBase;
 
-        .recent-item-title {
-            //margin-top: 5px;
+        .widget {
+            float: left;
+            width: 48%;
+            margin-top: @size-marginBase;
+            margin-bottom: @offset;
+            border: 1px solid @color-baseLighter;
+
+            & + .widget {
+                margin-left: 4%;
+            }
         }
 
-        .recent-item-link {
-            .fontLargest();
-            border: 0;
-        }
-
-        .recent-item-date {
-            .fontSmaller();
-            //margin-top: 5px;
-            color: @color-base;
-        }
-
-        .more-link {
-            border: 0;
+        .widget-title {
+            .fontSmall();
+            .flushed();
+            text-align: center;
+            padding: @offset;
             font-family: 'ArimoBold';
+            background: @color-baseLightest;
+            color: @color-base;
+            border-bottom: 1px solid @color-baseLighter;
+
+            &::before {
+                .fontLarger;
+                display: block;
+                font-family: 'FontAwesome';
+            }
+        }
+
+        .widget_recent_entries {
+            .widget-title::before {
+                content: '\f040';
+            }
+        }
+
+        .widget_recent_episodes {
+            .widget-title::before {
+                content: '\f130';
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding: @offset;
+
+            a {
+                .fontLarge(1.2em);
+                border: 0;
+                display: block;
+                margin-bottom: @offset;
+            }
+
+            .post-date {
+                .fontSmaller();
+            }
         }
     }
 }

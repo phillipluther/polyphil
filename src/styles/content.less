@@ -67,4 +67,72 @@
         color: @color-base;
         font-family: 'ArimoBold';
     }
+
+    .subscribe-wrapper {
+        .cleared();
+        .fontSmall();
+        font-family: 'ArimoBold';
+        color: @color-base;
+        padding: @size-marginBase / 2 0;
+        border: 1px solid @color-baseLighter;
+        border-right: 0;
+        border-left: 0;
+        margin-bottom: @size-marginBase;
+
+        .subscribe-title,
+        .subscribe-actions {
+            float: left;
+        }
+
+        .subscribe-title {
+            margin-right: @size-marginBase;
+        }
+
+        .subscribe-action {
+            border: 0;
+
+            & + .subscribe-action {
+                margin-left: ceil(@size-marginBase * 0.666);
+            }
+        }
+
+        .subscribe-action::before {
+            font-family: 'FontAwesome';
+            margin-right: 5px;
+        }
+
+        .itunes::before { content: '\f179'; }
+        .google::before { content: '\f1a0'; }
+        .rss::before    { content: '\f09e'; }
+    }
+
+    .no-results {
+        margin-bottom: @size-marginBase;
+
+        .fa {
+            font-size: @size-marginBase * 2;
+            display: block;
+            width: 100%;
+            text-align: center;
+            color: @color-baseSubtle;
+            padding: @size-marginBase;
+        }
+    }
+}
+
+.single {
+    .subscribe-wrapper {
+        .flushed();
+        border: 0;
+        position: absolute;
+        bottom: 75px;
+    }
+
+    .subscribe-title,
+    .feedback-title,
+    .addtoany_header {
+        margin-right: 0 !important;
+        width: ceil(@size-marginBase * 3.5);
+    }
+
 }

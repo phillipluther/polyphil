@@ -14,7 +14,7 @@
 // Sharing/Social
 //
 .addtoany_share_save_container {
-    padding-top: @size-marginBase * 3;
+    padding-top: ceil(@size-marginBase * 4.7);
 
     &.addtoany_content_bottom {
         margin: @size-marginBase 0 0;
@@ -55,11 +55,11 @@
 
             &::before {
                 font-family: 'FontAwesome';
-                left: 10px;
+                left: 0px;
             }
 
             &::after {
-                left: 30px;
+                left: 20px;
             }
 
         }
@@ -326,22 +326,23 @@
 .thumbs-up-down-wrapper {
     .cleared();
     position: absolute;
-    bottom: 80px;
+    bottom: 125px;
     padding-top: @size-marginBase;
     border-top: 1px solid @color-baseLighter;
 
+    .feedback-title,
+    .thumbs-rating-container {
+        float: left;
+    }
+
     .feedback-title {
-        .fontSmall();
+        .fontSmall(@size-buttonHeight);
         color: @color-base;
         font-family: 'ArimoBold';
     }
 
     .thumbs-rating-container {
-        //float: right;
         .flushed();
-        position: absolute;
-        left: 98px;
-        top: 25px;
 
         .thumbs-rating-up,
         .thumbs-rating-down {
@@ -382,8 +383,8 @@
             .fontSmaller();
             white-space: nowrap;
             position: absolute;
-            left: 280px;
-            top: -4px;
+            left: 390px;
+            top: 25px;
             color: @color-baseDark;
         }
     }    

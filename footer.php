@@ -1,10 +1,12 @@
 <?php 
-/*
- * @file [polyphil]/footer.php
- * @description
- *      This file contains our site's footer handling and markup. See the note
- *      in header.php as to why this doesn't contain closing body tags and
- *      other, "Hey, what's this actually closing?" stuff.
+/**
+ * This file contains our site's footer handling and markup. See the note
+ * in header.php as to why this doesn't contain closing body tags and
+ * other, "Hey, what's this actually closing?" stuff.
+ *
+ * @package WordPress
+ * @subpackage Polyphil
+ * @since Polyphil 1.0.0
  */
 ?>
 
