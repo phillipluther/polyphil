@@ -1,0 +1,30 @@
+/**
+ * @file src/styles/messages.less
+ * @description
+ * Our styles for messages - floating and otherwise - for the theme.
+ */
+
+.message-wrapper {
+    @messageWidth: 600px;
+
+    .fontSmall();
+    .shadowed(2px);
+    .rounded(4px);
+    position: absolute;
+    padding: @size-marginBase / 2;
+    top: -70px;
+    left: 50%;
+    width: @messageWidth;
+    margin-left: -(@messageWidth / 2);
+    border: 1px solid @color-messageBorder;
+    background: @color-messageBg;
+    text-align: center;
+    z-index: 1;
+    color: @color-baseDark;
+    font-family: 'ArimoBold';
+}
+
+.sub-option-disabled {
+    color: @color-baseLight !important;
+    cursor: help;
+}

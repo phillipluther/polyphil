@@ -81,6 +81,7 @@ a img {
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
+    color: @color-heading;
 }
 
 html,
@@ -105,18 +106,18 @@ body {
 // tag anywhere else.
 h2:not(.post-title) {
     .fontLarger();
-    margin: ceil(@size-marginBase * 0.8) 0  @size-marginBase / 2;
+    margin: @size-marginBase 0  @size-marginBase / 2;
 }
 
 h3 {
     .fontLarge();
-    margin-top: ceil(@size-marginBase * 0.666);
+    margin-top: ceil(@size-marginBase * 0.9);
 }
 
 h4 {
-    font-size: 1.1em;
-    line-height: 1.1em;
-    font-family: 'ArimoBold';
+    font-size: 1.2em;
+    line-height: 1.2em;
+    margin-top: ceil(@size-marginBase * 0.9);
 }
 
 h5 {

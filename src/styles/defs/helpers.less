@@ -67,10 +67,10 @@
 
 .insetShadowed(@size: 1px) {
     @halfSize: ceil(@size / 2);
-    -webkit-box-shadow: inset @halfSize @halfSize @size rgba(0, 0, 0, 0.15);
-       -moz-box-shadow: inset @halfSize @halfSize @size rgba(0, 0, 0, 0.15);
-        -ms-box-shadow: inset @halfSize @halfSize @size rgba(0, 0, 0, 0.15);
-            box-shadow: inset @halfSize @halfSize @size rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: inset @halfSize @halfSize @size @color-shadows;
+       -moz-box-shadow: inset @halfSize @halfSize @size @color-shadows;
+        -ms-box-shadow: inset @halfSize @halfSize @size @color-shadows;
+            box-shadow: inset @halfSize @halfSize @size @color-shadows;
 }
 
 .layoutCentered() {
@@ -105,6 +105,13 @@
        -moz-border-radius: @radius;
         -ms-border-radius: @radius;
             border-radius: @radius;
+}
+
+.shadowed(@size) {
+    -webkit-box-shadow: 0 @size / 2 @size @color-shadows;
+       -moz-box-shadow: 0 @size / 2 @size @color-shadows;
+        -ms-box-shadow: 0 @size / 2 @size @color-shadows;
+            box-shadow: 0 @size / 2 @size @color-shadows;
 }
 
 .sizeFonts(@fontSize) {

@@ -6,7 +6,6 @@
     "jQuery": false,
     "require": false,
     "module": false,
-    "$": false,
     "_": false
   },
   "rules": {
@@ -122,7 +121,6 @@
     "func-style": 0,
     "id-length": 0,
     "id-match": 0,
-    "indent": [1, 4, {"SwitchCase": 1, "VariableDeclarator": 2}],
     "jsx-quotes": [1, "prefer-double"],
     "key-spacing": [1, {"beforeColon": false, "afterColon": true, "mode": "minimum"}],
     "lines-around-comment": 0,
@@ -142,11 +140,9 @@
     "no-restricted-syntax": 0,
     "no-spaced-func": 1,
     "no-ternary": 0,
-    "no-trailing-spaces": [1, {"skipBlankLines": false}],
     "no-underscore-dangle": 0,
     "no-unneeded-ternary": [1, {"defaultAssignment": true}],
     "object-curly-spacing": [1, "never"],
-    "one-var": [1, {"uninitialized": "always", "initialized": "never"}],
     "operator-assignment": 0,
     "operator-linebreak": [1, "after"],
     "padded-blocks": [0, "never"],

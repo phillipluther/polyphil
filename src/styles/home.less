@@ -20,61 +20,29 @@
     }
 
     .widget-area {
-        @offset: ceil(@size-marginBase / 2);
-
-        .cleared();
-        margin-bottom: @size-marginBase;
+        @halfMargin: ceil(@size-marginBase / 3);
+        margin-bottom: @halfMargin;
 
         .widget {
-            float: left;
-            width: 48%;
-            margin-top: @size-marginBase;
-            margin-bottom: @offset;
-            border: 1px solid @color-baseLighter;
-
-            & + .widget {
-                margin-left: 4%;
-            }
+            padding: @halfMargin 0 0;
         }
 
         .widget-title {
             .fontSmall();
-            .flushed();
-            text-align: center;
-            padding: @offset;
             font-family: 'ArimoBold';
-            background: @color-baseLightest;
             color: @color-base;
+            padding-bottom: @halfMargin;
+            margin-bottom: @halfMargin;
             border-bottom: 1px solid @color-baseLighter;
-
-            &::before {
-                .fontLarger;
-                display: block;
-                font-family: 'FontAwesome';
-            }
-        }
-
-        .widget_recent_entries {
-            .widget-title::before {
-                content: '\f040';
-            }
-        }
-
-        .widget_recent_episodes {
-            .widget-title::before {
-                content: '\f130';
-            }
         }
 
         ul {
             list-style: none;
-            padding: @offset;
 
             a {
-                .fontLarge(1.2em);
+                .fontLarge();
                 border: 0;
                 display: block;
-                margin-bottom: @offset;
             }
 
             .post-date {
