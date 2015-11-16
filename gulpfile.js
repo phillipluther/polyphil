@@ -4,122 +4,61 @@
 'use strict';
 
 var
-    // Gulp and Gulp-related plugins
     gulp        = require('gulp'),
-    concat      = require('gulp-concat'),
-    lint        = require('gulp-eslint'),
-    less        = require('gulp-less'),
     livereload  = require('gulp-livereload'),
-    minifyCss   = require('gulp-minify-css'),
-    sourcemaps  = require('gulp-sourcemaps'),
-    uglify      = require('gulp-uglify'),
-
-    // other task-related dependencies
-    browserify  = require('browserify'),
-    buffer      = require('vinyl-buffer'),
-    del         = require('del'),
     path        = require('path'),
-    source      = require('vinyl-source-stream'),
 
-    // general pathing for reuse below
-    paths = {
+    paths = require('./src/conf/paths'),
+    conf = {
         scripts: {
-            sources: [
-                './src/scripts/**/*.js'
-            ],
-            dest: './js/',
-            entry: './src/scripts/app.js',
-            output: 'scripts-bundle.js'
+            sources: {
+                app: [
+                    path.join(paths.scripts, '**/*.js')
+                ],
+                vendor: [
+                ]
+            }
         },
         styles: {
-            sources: [
-                './src/styles/**/*.less',
-                '!./src/styles/*-bundle.less'
-            ],
-            lessDest: './src/styles/',
-            lessBundle: 'styles-bundle.less',
-            cssDest: './css/',
-            cssBundle: 'styles-bundle.css'
+            sources: {
+                app: [
+                    path.join(paths.styles, '**/*.less'),
+                    '!' + path.join(paths.customLess, '**/*.less')
+                ],
+                vendor: [
+                    path.join(paths.customLess, '**/*.less')
+                ]
+            }
         }
     };
 
+//
+// Modular tasks for managing script bundling. these handle packaging of both
+// vendor scripts and app scripts and provide the following Gulp tasks:
+//
+// scripts
+// scripts:app
+// scripts:lint
+// scripts:vendor
+//
+require('./src/gulpers/scripts.task');
 
 //
-// Simple error handler for catching problems and not breaking our pipe.
+// Modular tasks for managing CSS files and compiling Less sheets; provides
+// the following Gulp tasks:
 //
-function handleError(err) {
-    console.log(err.message);
-    this.end();
-}
+// styles
+// styles:app
+// styles:concat
+// styles:less
+// styles:vendor
+//
+require('./src/gulpers/styles.task');
+
 
 //
-// Packaging scripts; we go ahead and uglify even during development since
-// everything is sourcemapped.
-//
-gulp.task('scripts', ['lint'], function() {
-
-    var b = browserify({
-        entries: paths.scripts.entry,
-        debug: true
-    });
-
-    return b.bundle()
-        .pipe(source(paths.scripts.output))
-        .pipe(buffer())
-        .pipe(sourcemaps.init({
-            loadMaps: true
-        }))
-            .pipe(uglify())
-            .on('error', handleError)
-        .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(paths.scripts.dest))
-        .pipe(livereload());
-});
-
-//
-// Packaging styles, as with scripts, production'ifying them from the get-go
-// with sourcemaps for dev
-//
-gulp.task('concat-styles', function() {
-    return gulp.src(paths.styles.sources)
-        .pipe(sourcemaps.init())
-        .pipe(concat(paths.styles.lessBundle))
-        .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(paths.styles.lessDest));
-});
-
-gulp.task('lessify-styles', ['concat-styles'], function() {
-    return gulp.src(paths.styles.lessDest + paths.styles.lessBundle)
-        .pipe(sourcemaps.init({
-            loadMaps: true
-        }))
-        .pipe(less())
-            .on('error', handleError)
-        .pipe(minifyCss())
-        .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(paths.styles.cssDest))
-        .pipe(livereload());
-});
-
-gulp.task('styles', ['lessify-styles'], function() {
-    del(paths.styles.lessDest + paths.styles.lessBundle + '*');    
-});
-
-//
-// linting for code quality/cruft control
-//
-gulp.task('lint', function() {
-    return gulp.src(paths.scripts.sources)
-        .pipe(lint({
-            config: '.eslintrc'
-        }))
-        .pipe(lint.format())
-        // be a dictator about it; don't pass crappy JS
-        .pipe(lint.failOnError());
-});
-
-//
-// Watchers and helpers for bundling
+// The primary build task, which creates production-ready CSS and JS assets
+// used in our theme.
 //
 gulp.task('build', [
     'styles',
@@ -132,12 +71,17 @@ gulp.task('watch', ['build'], function() {
     livereload.listen();
 
     // js
-    gulp.watch(paths.scripts.sources, [
-        'scripts'
+    gulp.watch(conf.scripts.sources.app, [
+        'scripts:app'
     ]);
 
     // css
-    gulp.watch(paths.styles.sources, [
-        'styles'
+    gulp.watch(conf.styles.sources.app, [
+        'styles:app'
+    ]);
+
+    // vendor CSS (mainly our custom Bootstrap build)
+    gulp.watch(conf.styles.sources.vendor, [
+        'styles:vendor'
     ]);
 });

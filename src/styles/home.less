@@ -1,53 +1,8 @@
 /**
- * @file src/styles/home.less
+ * @file ./src/styles/home.less
  * @description
- *      Definitions and visual stylings specific to our home page (home.php).
+ * Our styles for the Home page template.
  */
-.home-wrapper {
-    .bottomBordered() {
-        border-bottom: 1px solid @color-baseLighter;
-        padding-bottom: @size-marginBase;
-    }
 
-    .cleared();
-
-    .page-header {
-        font-size: 19px;
-        margin-top: -20px;
-        margin-bottom: @size-marginBase;
-        font-style: italic;
-        color: @color-base;
-    }
-
-    .widget-area {
-        @halfMargin: ceil(@size-marginBase / 3);
-        margin-bottom: @halfMargin;
-
-        .widget {
-            padding: @halfMargin 0 0;
-        }
-
-        .widget-title {
-            .fontSmall();
-            font-family: 'ArimoBold';
-            color: @color-base;
-            padding-bottom: @halfMargin;
-            margin-bottom: @halfMargin;
-            border-bottom: 1px solid @color-baseLighter;
-        }
-
-        ul {
-            list-style: none;
-
-            a {
-                .fontLarge();
-                border: 0;
-                display: block;
-            }
-
-            .post-date {
-                .fontSmaller();
-            }
-        }
-    }
+.home {
 }

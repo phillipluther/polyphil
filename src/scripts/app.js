@@ -1,12 +1,11 @@
 /**
- * @file src/scripts/app.js
+ * @file ./src/scripts/app.js
  * @description
- * This file serves strictly as a bootstrapper for any custom client-side
- * functionality used in the theme.
+ * Our entry file for the app's script bundle.
  */
 
 'use strict';
 
-// subscription handling, including any enable/disable options and our custom
-// email subscription module
-require('./subOptions');
+module.exports = (function() {
+    console.log('App scripts successfully bootstrapped.');
+})();

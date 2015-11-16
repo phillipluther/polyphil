@@ -1,46 +1,15 @@
 <?php
+/**
+ * @package WordPress
+ * @subpackage Polyphil
+ * @since Polyphil 1.0
+ */
 
 function register_menus() {
     register_nav_menus(array(
         'header-menu'   => __('Header Menu')
         //'social-links'  => __('Social Menu')
     ));
-}
-
-// Seriously Simple Podcasting init functions to include podcasts in the
-// blog feed
-function ssp_add_categories_to_podcast () {
-    register_taxonomy_for_object_type( 'category', 'podcast' );
-}
-
-function ssp_add_podcast_to_category_archives( $query ){
-    if( is_admin() ) {
-        return; 
-    }
-  
-    if( $query->is_tax('category') ) {
-        $query->set('post_type', array( 'post', 'podcast' ) );
-    }
-}
-
-// helper function for rendering Subscribe actions site-wide
-function poly_render_subscribe_actions($title, $actions) {
-
-    $markup = '<div class="subscribe-wrapper">' .
-        '<p class="subscribe-title">' . $title . '</p>' .
-        '<div class="subscribe-actions">';
-
-
-    foreach ($actions as $action) {
-        $markup .= 
-            '<a href="' . $action['href'] . '" class="subscribe-action ' . $action['hook'] . '" target="_blank">' .
-                $action['text'] . 
-            '</a>';
-    }
-
-    $markup .= '</div></div>';
-
-    _e($markup);
 }
 
 // initialization of our "side" bars ... side in quotes because it's a single
@@ -72,6 +41,4 @@ function init_widgets() {
  * Action Hooks
  */
 add_action('init', 'register_menus');
-add_action('init', 'ssp_add_categories_to_podcast');
 add_action('widgets_init', 'init_widgets');
-add_action('pre_get_posts', 'ssp_add_podcast_to_category_archives');

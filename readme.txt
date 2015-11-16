@@ -2,7 +2,7 @@
 Contributors: Phillip Luther
 Requires at least: WordPress 4.1
 Tested up to: WordPress 4.3-trunk
-Version: 1.0.0
+Version: 1.1.0
 License: Private
 
 
@@ -30,13 +30,18 @@ It clutters up the theme folder. Meh.
 The following plugins are expected by the theme and include custom styling in the final build:
 
 * AddToAny Share Buttons
-* Seriously Simple Podcasting
 * Thumbs Rating
 * wpDiscuz - Supercharged native comments
+* ... to be fleshed out ...
 
 
 == Changelog ==
 
-* Released: November 7, 2015
+* Latest: November 16, 2015
 
-Initial release
+Major overhaul of the theme, including more customized pages following the WP get_template_part() conventions and adding more robust search/404 handling. New custom pages for Blog and Podcast display, fancy responsiveness now baked in.
+
+* Updated: November 16, 2015
+* Updated: November 13, 2015
+* Initially released: November 7, 2015
+

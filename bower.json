@@ -1,0 +1,33 @@
+{
+  "name": "polyphil",
+  "description": "This is a personal theme for my blog and podcast site. Goals of the project included 1) goofing around with custom themes, 2) trying to make something minimalistic, mobile-friendly and uncluttered, and 3) playing around with WP plugins after being away from the platform for a long while.",
+  "main": "index.js",
+  "authors": [
+    "Phillip Luther"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "polyphil",
+    "wordpress",
+    "responsive",
+    "blog",
+    "podcast",
+    "theme"
+  ],
+  "moduleType": [],
+  "homepage": "http://www.phillipluther.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4",
+    "font-awesome": "fontawesome#~4.4.0",
+    "arimo": "https://google-fonts.azurewebsites.net/googleFonts/arimo?family=Arimo:700,400"
+  }
+}
