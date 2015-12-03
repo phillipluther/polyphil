@@ -1,0 +1,312 @@
+/**
+ * @file ./src/styles/header.less
+ * @description
+ * Our header stylings; applies to all pages but Home ... which has custom
+ * styles defined in `src/styles/home.less`.
+ */
+@headerHeight: 65px;
+@headerPadding: 10px;
+@headerUsableHeight: @headerHeight - (@headerPadding * 2);
+
+// account for our fixed header
+body:not(.home) {
+    padding-top: @headerHeight + (@headerPadding * 2);
+}
+
+.header-wrapper {
+
+    .header {
+        border: 0;
+        background: @color-header-bg;
+        padding: @headerPadding 0;
+        border-bottom: 1px solid @color-header-border;
+    }
+
+    .nav-content {
+        position: relative;
+    }
+
+    .navbar-brand {
+        padding-top: 0;
+        padding-bottom: 0;
+        position: relative;
+        z-index: 1;
+        height: @headerHeight;
+
+        .text-hide { 
+            position: absolute; 
+        }
+    }
+
+    .logo {
+        .blocked(275px, @headerUsableHeight);
+        margin-top: @headerPadding;
+        background: transparent url('../images/polygoing_logoHeader.png') left center no-repeat;
+    }
+
+    .hamburger {
+        .flushed;
+        width: @headerUsableHeight;
+        height: @headerUsableHeight;
+        background: @color-accent;
+        color: #fff;
+        font-size: 1.5em;
+        float: left;
+        margin-top: @headerPadding;
+
+        &:hover,
+        &:focus {
+            background: @color-accent-hover;
+        }
+    }
+
+    .menu-item {
+        a {
+            .boxed;
+            .rounded;
+            height: @headerHeight;
+            padding: 7px 15px 5px;
+            font-family: 'ArimoBold';
+            font-size: 0.9em;
+            color: @color-nav-text;
+
+            &:hover,
+            &:focus {
+                background: @color-nav-bg-hover;
+            }
+
+            &:active {
+                background: @color-nav-bg-active;
+            }
+
+            &::before {
+                display: block;
+                text-align: center;
+                font-size: 25px;
+                font-family: 'FontAwesome';
+            }
+        }
+
+        &.current-menu-item {
+            a {
+                color: @color-nav-text-current;
+                background: @color-nav-bg-current;
+            }
+        }
+
+        &.podcast {
+            a::before { content: '\f130'; }
+        }
+
+        &.blog {
+            a::before { content: '\f040'; }
+        }
+
+        &.youtube {
+            a::before { content: '\f16a'; }
+        }
+
+        &.twitter {
+            a::before { content: '\f099'; }
+        }
+
+    }
+
+    .navbar-form {
+        .flushed;
+
+        .label,
+        .field {
+            .flushed;
+            line-height: @headerUsableHeight + 1px;
+        }
+
+        .label {
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: @color-accent;
+            font-size: 24px;
+        }
+
+        .text-field {
+            margin-top: 12px;
+            position: relative;
+            padding-left: 35px;
+            //border-bottom: 1px solid @color-field-border;
+        }
+
+        .field {
+            .rounded(0);
+            .shadow(0);
+            border: 0;
+            height: @headerUsableHeight;
+            background: transparent;
+        }
+    }
+
+    .search-toggle {
+        margin-top: 17px;
+        float: right;
+        text-align: center;
+        background: none;
+        border: 0;
+
+        .fa-search-plus {
+            font-size: 24px;
+        }
+    }
+
+    #searchForm {
+        &.toggle-show {
+            .blocked(395px, 100%);
+            display: block !important;
+            position: absolute;
+            top: 0;
+            right: -5px;
+            z-index: 1;
+            background: #fff;
+            padding-left: 15px;
+            padding-right: 25px;
+
+            .field {
+                width: 290px;
+            }
+
+            .search-toggle {
+                display: block;
+                position: absolute;
+                right: 12px;
+                top: 4px;
+                font-size: 24px;
+
+                &:hover,
+                &:focus {
+                    text-decoration: none;
+                    color: @color-accent-hover;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1019px) and (min-width: 768px) {
+
+    .header-wrapper {
+
+        .navbar-form {
+
+            .text-field {
+                width: 330px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1460px) {
+
+    .header-wrapper {
+        .navbar-form {
+
+            .text-field {
+                width: 360px;
+            }
+
+            .field {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// hooks for mini-header styles
+@media (max-width: 767px) {
+
+    .header-wrapper {
+        @collapsedHeight: 50px;
+
+        .logo {
+            margin-left: -15px;
+        }
+
+        .nav-content {
+            //.shadow(2px);
+            margin-left: -15px;
+        }
+
+        .menu-item {
+            a {
+                .flushed;
+                height: @collapsedHeight;
+                line-height: @collapsedHeight;
+
+                &::before {
+                    display: inline;
+                    font-size: 19px;
+                    margin-left: 30px;
+                    margin-right: 10px;
+                }
+            }
+
+            &.current-menu-item {
+                a {
+                    border-bottom: 0;
+                }
+            }
+        }
+
+        .navbar-form {
+            width: calc(100% ~'+' 30px);
+            margin-top: 10px;
+            margin-left: -15px;
+            padding: 15px 15px 10px;
+            border-top: 1px solid @color-gray-lightest;
+
+            .text-field {
+                margin-top: 0;
+                margin-bottom: 0;
+
+                .label,
+                .field {
+                    line-height: @collapsedHeight;
+                    height: @collapsedHeight;
+                }
+
+                .field {
+                    border: 0;
+                }
+            }
+
+        }
+    }
+}
+
+@media (max-width: 441px) {
+    .header-wrapper {
+        .logo {
+            width: 220px;
+            background-size: contain;
+        }
+    }
+}
+
+@media (max-width: 386px) {
+    .header-wrapper {
+        .logo {
+            width: 150px;
+            background-size: contain;
+        }
+    }
+}
+
+//
+// Retina-images
+//
+.image-2x {
+    .header-wrapper {
+
+        .logo {
+            background-image: url('../images/polygoing_logoHeader_2x.png');
+        }
+    }
+}

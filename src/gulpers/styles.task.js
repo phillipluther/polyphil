@@ -51,7 +51,7 @@ var
             // of these to output a CSS file placed in the ./src/vendors/css 
             // folder.
             tasks: [
-                'bootstrap',
+                'bootstrap:css',
                 'fontAwesome',
                 'fonts'
             ]
@@ -63,9 +63,10 @@ var
 // Gulp tasks:
 //
 // bootstrap
-// bootstrap:build
-// bootstrap:less
+// bootstrap:copy
+// bootstrap:css
 // bootstrap:js
+// bootstrap:less
 //
 require('./bootstrap.task');
 

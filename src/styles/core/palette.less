@@ -1,0 +1,79 @@
+/**
+ * @file ./src/styles/core/palette.less
+ * @description
+ * Our color palette definitions used for flavor through the theme's Less
+ * files, including our custom Bootstrap definitions.
+ */
+
+@color-accent:          #012345;
+@color-accent-hover:    #696979;
+@color-accent-active:   #898999;
+
+// these are synced to align with Bootstrap's color scaling
+@color-gray-darkest:    #292929;
+@color-gray-darker:     #494949;
+@color-gray-dark:       #696969;
+@color-gray:            #898989;
+@color-gray-light:      #a9a9a9;
+@color-gray-lighter:    #d9d9d9;
+@color-gray-lightest:   #e9e9e9;
+@color-off-white:       #f0f0f0;
+
+@color-shadow:          rgba(0, 0, 0, 0.1);
+
+
+//
+// Derived and semantic styles; advised we use these instead of the color defs
+// above directly
+//
+@color-text:                @color-gray-dark;
+@color-text-light:          @color-gray;
+@color-text-lighter:        @color-gray-light;
+@color-text-lightest:       @color-gray-lighter;
+
+@color-block-hover:         @color-off-white;
+@color-block-active:        @color-gray-lightest;
+@color-block-current:       #fff;
+@color-block-border:        @color-gray-lighter;
+
+// header colors
+@color-header-bg:           #fff;
+@color-header-border:       @color-gray-lightest;
+
+// heading colors
+@color-heading:             @color-gray-dark;
+
+// nav colors
+@color-nav-text:            @color-accent;
+@color-nav-text-current:    @color-gray-light;
+@color-nav-bg:              #fff;
+@color-nav-bg-hover:        @color-gray-lightest;
+@color-nav-bg-active:       @color-off-white;
+@color-nav-bg-current:      #fff;
+
+// various icons
+@color-category-icon:       #fff;
+@color-category-icon-bg:    @color-gray-lighter;
+
+// form field colors
+@color-field-border:        @color-gray-light;
+@color-field-border-focus:  @color-accent-hover;
+
+// player controls
+@color-player-controls:     @color-gray-dark;
+@color-player-scrub-border: @color-gray-lightest;
+@color-player-scrub-bg:     @color-off-white;
+@color-player-scrub-buffer: @color-gray-lightest;
+@color-player-vol:          @color-gray;
+@color-player-vol-hover:    @color-accent;
+@color-player-vol-bg:       @color-gray-lightest;
+@color-player-vol-current:  @color-gray-light;
+@color-player-scrub:        @color-accent;
+
+// buckets!
+@color-bucket-meta:         @color-gray-light;
+@color-bucket-bg:           #fff;
+@color-bucket-border:       @color-gray-lightest;
+@color-bucket-header:       @color-gray-lightest;
+@color-bucket-hover:        @color-off-white;
+@color-bucket-active:       @color-gray-lightest;

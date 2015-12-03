@@ -37,11 +37,39 @@ var
         },
         vendor: {
             sources: [
-                path.join(paths.vendor, 'js', '*.js')
+
+                // we explicitly name our vendor sources to ensure proper load
+                // order
+                path.join(paths.vendorJs, 'jquery.js'),
+                path.join(paths.vendorJs, 'bootstrap.js'),
+
+                // grab everything else not named above
+                path.join(paths.vendorJs, '**/*.js')
             ],
-            output: 'scripts-vendor.js'
+            output: 'scripts-vendor.js',
         }
     };
+
+//
+// Our module task file specific to building Bootstrap. contains the following
+// Gulp tasks:
+//
+// bootstrap
+// bootstrap:copy
+// bootstrap:css
+// bootstrap:js
+// bootstrap:less
+//
+require('./bootstrap.task');
+
+//
+// Our modular task file for including jQuery from the Bower components
+// directory; provides the following grunt tasks:
+//
+// jquery
+//
+require('./jquery.task');
+
 
 //
 // Simple error handler for catching problems and not breaking our pipe.
@@ -73,7 +101,7 @@ gulp.task('scripts:lint', function() {
 // NOTE! most (if not all) of the vendor scripts are placed in this folder via
 // Gulp tasks from our gulpers. we expect these files to be un-minified.
 //
-gulp.task('scripts:vendor', function() {
+gulp.task('scripts:vendor', ['jquery', 'bootstrap:js'], function() {
     return gulp.src(conf.vendor.sources)
         .pipe(concat(conf.vendor.output))
         .pipe(uglify())

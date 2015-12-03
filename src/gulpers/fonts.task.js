@@ -27,7 +27,9 @@ var
     conf = {
         dest: {
             build: path.join(paths.vendorCss, 'fonts_build'),
-            fonts: paths.fonts,
+            // lame that we have to put fonts in the CSS folder ... limitation
+            // of the Bower packaging of Google Fonts
+            fonts: paths.css,
             css: paths.vendorCss
         },
         sources: {

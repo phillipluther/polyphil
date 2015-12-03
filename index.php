@@ -13,8 +13,8 @@
     get_header(); 
 ?>
 
-    <div class="content-wrapper">
-        <main class="content">
+    <div class="content-wrapper container">
+        <main class="content row">
 
 <?php 
     // if there are posts to display
@@ -25,14 +25,16 @@
         if (is_home() && !is_front_page()) {
 ?>
 
-            <h1 class="page-title"><?php single_post_title(); ?></h1>
+            <div class="col-xs-6">
+                <h1 class="page-title"><?php single_post_title(); ?></h1>
 
 <?php 
         }
 
         while (have_posts()) : the_post();
-            // include the appropriate template partial (Blog, Podcast, etc.)
-            get_template_part('content', get_post_format());
+            // all content (blogs, podcasts, etc.) is run through our content
+            // template for initial commonality
+            get_template_part('content');
         endwhile;
 
     // if no posts were found, show the "empty" content partial. NOTE! this is
@@ -42,10 +44,11 @@
     endif;
 ?>
 
+            </div>
         </main>
     </div>
 
-<?php 
+<?php
     // load our universal footer
     get_footer(); 
 

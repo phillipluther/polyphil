@@ -1,0 +1,70 @@
+/**
+ * @file ./src/styles/plugins/thumbsUpDown.less
+ * @description
+ * ...
+ */
+
+.watch-action {
+    //margin-top: 18px;
+    //padding-top: 6px;
+    //border-top: 1px solid @color-header-border;
+
+    visibility: hidden;
+
+    &.thumbs-up-down-ready {
+        visibility: visible;
+    }
+
+    .jlk {
+        position: relative;
+        padding-left: 30px;
+
+        img { display: none; }
+
+        &::before {
+            position: absolute;
+            left: 12px;
+            font-family: 'FontAwesome';
+            padding-right: 12px;
+        }
+
+        span {
+            display: inline-block;
+            color: inherit;
+            font-family: 'ArimoBold';
+            line-height: inherit;
+            font-size: inherit;
+        }
+    }
+
+    .status {
+        line-height: 1.5;
+        padding: 12px 0 0;
+        font-style: italic;
+        display: block;
+        width: 100%;
+    }
+
+    .entry-action-title {
+        font-family: 'ArimoBold';
+        color: @color-text-lighter;
+    }
+
+    .action-like,
+    .action-unlike {
+        span::before {
+            padding-right: 6px;
+        }
+        padding: 0 7px 7px 0;
+    }
+
+    .action-like {
+        .jlk::before { content: '\f164'; }
+        span::before { content: 'Liked it! '; }
+    }
+
+    .action-unlike {
+        .jlk::before { content: '\f165'; }
+        span::before { content: 'Disliked '; }
+    }
+}

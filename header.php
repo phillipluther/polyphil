@@ -21,7 +21,6 @@
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
     <title></title>
-    <meta name="description" content="">
 
     <!-- the favicon army! -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
@@ -44,10 +43,11 @@
 
     <!-- pull in our theme stylesheets -->
     <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/css/styles-vendor.css">
-    <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/css/styles-bundle.css">
+    <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/css/styles-app.css">
 
-    <!-- pull in our theme scripts (blocking!) -->
-    <script src="<?php echo esc_url(get_template_directory_uri()); ?>/js/scripts-vendor-bundle.js"></script>
+    <!-- pull in our theme scripts (intentionally blocking!) -->
+    <script src="<?php echo esc_url(get_template_directory_uri()); ?>/js/scripts-vendor.js"></script>
+    <script src="<?php echo esc_url(get_template_directory_uri()); ?>/js/scripts-app.js"></script>
     <?php wp_head(); ?>
 </head>
 
@@ -55,7 +55,6 @@
     <div class="page-wrapper polyphil">
 
         <header class="header-wrapper">
-            <div class="header">
 
 <?php
     // capture this here to avoid multiple checks
@@ -64,45 +63,100 @@
     // if this is our homepage, use the site title as our H1 for SEO
     if ($isHome) {
 ?>
+            <div class="container">
+                <div class="row">
+                    <h1 class="home-title col-xs-12">
+                        <a href="<?php echo esc_url(home_url('/')); ?>" rel="home" class="title-link logo text-hide">
+                            <?php bloginfo('name'); ?>
+                        </a>
+                    </h1>
 
-                <h1 class="page-title">
-                    <a href="<?php echo esc_url(home_url( '/')); ?>" rel="home" class="title-link">
-                        <?php bloginfo('name'); ?>
-                        <span class="title-tagline"><?php bloginfo('description'); ?></span>
-                    </a>
-                </h1>
-
-<?php 
-    // if not the home page, the post/page title should be our H1; display the
-    // blog title as just another piece of text
-    } else { 
-?>
-
-                <p class="page-title">
-                    <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-                        <?php bloginfo('name'); ?>
-                        <span class="title-tagline"><?php bloginfo('description'); ?></span>
-                    </a>
-                </p>
-
-<?php 
-    }
-?>
+                    <div class="col-xs-12">
+                        <h2 class="title-tagline"><?php bloginfo('description'); ?></h2>
+                    </div>
+                </div>
             </div>
 
 <?php
-    // our home page is basically one giant nav menu; don't include it
-    if ($isHome === false) {
+    } else { // $isHome
 ?>
-            <nav class="nav-wrapper">
-                <?php wp_nav_menu(array('theme_location' => 'header-menu')); ?>
-            </nav>
+
+            <nav class="navbar navbar-fixed-top">
+                <div class="container">
+
+                    <div class="header">
+                        <button type="button" class="navbar-toggle collapsed hamburger" data-toggle="collapse" data-target="#primaryNav" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="fa fa-navicon"></span>
+                        </button>
+
+                        <div class="navbar-header logo-wrapper">
+                            <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+                                <span class="text-hide">
+                                    <?php bloginfo('name'); ?> | 
+                                    <?php bloginfo('description'); ?>
+                                </span>
+                                <span class="logo"></span>
+                            </a>
+                        </div>
+
+                        <div class="collapse navbar-collapse nav-content" id="primaryNav">
+
+                            <?php wp_nav_menu(array(
+                                'menu' => 'primary',
+                                'container' => false,
+                                'menu_class' => 'nav navbar-nav header-nav',
+                                //'theme_location' => 'header-menu',
+                                'walker' => new wp_bootstrap_navwalker()
+                            )); ?>
+
 <?php
-    }
+    /*
+     * We hardcode a header-specific quick search here, as it's used only in
+     * the header and integrated with our Bootstrap nav. All other searches,
+     * as in the widgets or on the "no results" page come from searchform.php.
+     */
 ?>
+
+                            <button type="button" id="searchToggle" class="search-toggle visible-sm">
+                                <span class="fa fa-search-plus"></span>
+
+                                <span class="sr-only">Search</span>
+                            </button>
+
+                            <form method="get" id="searchForm" action="<?php echo home_url() ; ?>/" class="navbar-form navbar-right hidden-sm" role="search">
+
+                                <div class="form-field-wrapper text-field form-group">
+                                    <label for="s" class="label">
+                                        <span class="sr-only">Search blog entries &amp; podcast content:</span>
+                                        <span class="fa fa-search search-icon"></span>
+                                    </label>
+                                    <input type="text" class="field form-control" placeholder="Search ..." value="<?php echo esc_html($s, 1); ?>" name="s" id="s" />
+                                </div>
+
+                                <div class="form-field-wrapper submit-field sr-only">
+                                    <button type="submit" class="field btn btn-default">
+                                        <span class="fa fa-search"></span>
+                                        <span class="text-hide">Go</span>
+                                    </button>
+                                </div>
+
+                                <a href="javascript:;" class="search-toggle fa fa-times-circle visible-sm">
+                                    <span class="sr-only">Close Search</span>
+                                </a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!--div class="header-fade"></div-->
+
+<?php
+    } // $isHome/els
+?>
+
         </header>
 
 <?php 
-    get_sidebar();
-
     // eof

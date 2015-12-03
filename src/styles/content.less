@@ -1,0 +1,144 @@
+/**
+ * @file ./src/styles/content.less
+ * @description
+ * Our styles for our content (and content derivative) pages.
+ */
+
+body,
+html {
+    overflow-x: hidden;
+}
+
+.content {
+
+    .subscribe-links-wrapper {
+        font-family: 'ArimoBold';
+
+        .subscribe-label {
+            padding-right: 15px;
+            color: @color-text-lighter;
+        }
+
+        .subscribe-link {
+            display: inline-block;
+        }
+    }
+
+    .post-details {
+        color: @color-text-light;
+    }
+
+    .post-cta {
+        font-family: 'ArimoBold';
+        .fa { margin-right: 5px; }
+    }
+
+
+    .supplemental {
+        .album-art {
+            width: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .sidebar-title {
+            color: @color-text-lighter;
+        }
+
+        .widget_recent_entries {
+            ul {
+                .flushed;
+                list-style: none;
+            }
+
+            .post-date,
+            a {
+                display: block;
+                padding-left: 20px;
+            }
+
+            a {
+                position: relative;
+                margin: 0 0 6px;
+                line-height: 1.4;
+
+                &::before {
+                    font-family: 'FontAwesome';
+                    content: '\f0da';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+            }
+
+            .post-date {
+                font-size: 0.85em;
+                color: @color-text-light;
+                margin-bottom: 20px;
+            }
+        }
+
+        .supplemental-links {
+            margin-top: 30px;
+            .fa {
+                margin-right: 5px;
+            }
+
+            .supplemental-link {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        }
+    }
+}
+
+.single {
+    @topBuffer: 40px;
+
+    .post-title-wrapper {
+        margin-top: @topBuffer;
+    }
+
+    .supplemental {
+        margin-top: @topBuffer;
+    }
+}
+
+.search-no-results {
+    .page-wrapper {
+        margin-top: 20px;
+    }
+}
+
+.error404 {
+
+    .not-found {
+        margin-top: 45px;
+    }
+
+    .search-wrapper {
+        margin: 30px 0 60px;
+    }
+
+    .not-found-heading {
+        font-size: 1.5em;
+    }
+
+    .widget_recent_entries {
+        ul {
+            .flushed;
+            list-style: none;
+        }
+
+        a,
+        .post-date {
+            display: block;
+        }
+
+        .post-date {
+            font-size: 0.85em;
+            color: @color-text-light;
+            margin-bottom: 18px;
+        }
+    }
+}

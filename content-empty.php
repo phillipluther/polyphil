@@ -13,31 +13,36 @@
     <section class="content-empty-wrapper">
 
         <header class="content-header-wrapper">
-            <div class="content-header">
+            <div class="content-header col-xs-6">
                 <h1 class="content-title">No Results Found</h1>
+                <p>Drag, I know.</p>
             </div>
         </header>
 
         <div class="content-body-wrapper">
 
+            <div class="col-xs-6 col-lg-5">
 <?php 
     if (is_search()) { 
 ?>
 
-            <p>Nothing matched your search terms. Try again?</p>
-            <?php get_search_form(); ?>
+                <h2 class="subheading try-search-again">Try another search?</h2>
+                <p>Nothing came up for your search of <strong><?php echo esc_html($s, 1); ?></strong>. Try searching again for something a little less specific.</p>
+                <?php get_search_form(); ?>
 
 <?php 
     } else {
 ?>
 
-            <p>We're having some trouble finding what you were looking for.</p>
-            <?php get_search_form(); ?>
+                <h2 class="subheading try-search-again">Try a search?</h2>
+                <p>We're having some trouble finding what you were looking for.</p>
+                <?php get_search_form(); ?>
 
 <?php
     }
 ?>
 
+            </div>
         </div>
     </section>
 

@@ -12,19 +12,22 @@
     get_header(); 
 ?>
 
-    <div class="content-wrapper">
-        <main class="content">
+    <div class="content-wrapper container">
+        <main class="content row">
 
-            <section class="not-found-wrapper">
+            <section class="not-found-wrapper col-xs-6 col-lg-5">
                 <div class="not-found">
-                    <header class="page-header">
-                        <h1 class="page-title">That Page Doesn't Seem to Exist</h1>
-                    </header>
+                    <h1 class="page-title">That Page Doesn't Seem to Exist</h1>
+                    <p>You're invited to check out some of the recent posts mentioned below, or try a search to find what you're looking for.</p>
 
                     <div class="page-content">
-                        <p>Not found!</p>
 
-                        <?php get_search_form(); ?>
+                        <div class="search-wrapper">
+                            <?php get_search_form(); ?>
+                        </div>
+
+                        <h2 class="not-found-heading">Recent Posts</h2>
+                        <?php dynamic_sidebar('blog-goodies'); ?>
                     </div>
                 </div>
             </section>

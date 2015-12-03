@@ -1,0 +1,41 @@
+/**
+ * @file ./src/styles/plugins/jetpackSharing.less
+ * @description
+ * Styles for overriding and adjusting Jetpack's sharing functionality to
+ * match the theme visuals. This is used in tandem with the script at
+ * `src/scripts/jetpackSharing.js` for Bootstrapping the share buttons.
+ */
+
+.sharedaddy {
+    visibility: hidden;
+
+    &.jetpack-sharing-ready {
+        visibility: visible;
+    }
+
+    .entry-action-title {
+        font-family: 'ArimoBold';
+        color: @color-text-lighter;
+    }
+
+    .btn {
+        margin-right: 8px;
+        margin-bottom: 4px;
+        font-family: 'ArimoBold';
+
+        &.share-facebook,
+        &.share-twitter,
+        &.share-reddit,
+        &.share-google-plus-1 {
+            span::before {
+                font-family: 'FontAwesome';
+                padding-right: 6px;
+            }
+        }
+
+        &.share-facebook span::before    { content: '\f230'; }
+        &.share-twitter span::before     { content: '\f099'; }
+        &.share-reddit span::before      { content: '\f1a1'; }
+        &.share-google-plus-1 span::before { content: '\f0d5'; }
+    }
+}

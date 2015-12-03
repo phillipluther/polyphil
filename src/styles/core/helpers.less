@@ -10,3 +10,82 @@
     width: @width;
     height: @height;
 }
+
+.boxed() {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.cleared() {
+    display: inline-block;
+    width: 100%;
+
+    &::after {
+        content: '';
+        visibility: hidden;
+        height: 0;
+        line-height: 0;
+        clear: both;
+    }
+}
+
+.flushed() {
+    margin: 0;
+    padding: 0;
+}
+
+// create the orb icon styles
+.iconized(@orbSize, @iconSize) {
+    .blocked(@orbSize, @orbSize);
+    .rounded(50%);
+    font-size: @iconSize;
+    text-align: center;
+    line-height: @orbSize;
+}
+
+.insetShadow(@size) {
+    -webkit-box-shadow: inset 0 @size (@size * 2) @color-shadow;
+       -moz-box-shadow: inset 0 @size (@size * 2) @color-shadow;
+        -ms-box-shadow: inset 0 @size (@size * 2) @color-shadow;
+            box-shadow: inset 0 @size (@size * 2) @color-shadow;
+}
+
+.linearGradient(@dir, @from, @to) {
+    background-color: @to;
+    background-image: -webkit-linear-gradient(@dir, @from, @to);
+    background-image:    -moz-linear-gradient(@dir, @from, @to);
+    background-image:     -ms-linear-gradient(@dir, @from, @to);
+    background-image:         linear-gradient(@dir, @from, @to);
+}
+
+.rotate(@deg) {
+    -webkit-transform: rotate(@deg);
+       -moz-transform: rotate(@deg);
+        -ms-transform: rotate(@deg);
+            transform: rotate(@deg);
+}
+
+// normalized rounded corners with vendor prefixes
+.rounded(@radius:3px) {
+    -webkit-border-radius: @radius;
+       -moz-border-radius: @radius;
+        -ms-border-radius: @radius;
+            border-radius: @radius;
+}
+
+.shadow(@size) {
+    @blurSize: @size * 2;
+    -webkit-box-shadow: 0 @size @blurSize @color-shadow;
+       -moz-box-shadow: 0 @size @blurSize @color-shadow;
+        -ms-box-shadow: 0 @size @blurSize @color-shadow;
+            box-shadow: 0 @size @blurSize @color-shadow;
+}
+
+.transition(@prop, @duration:180ms, @easing:linear, @delay:0ms) {
+    -webkit-transition: @prop @duration @easing @delay;
+       -moz-transition: @prop @duration @easing @delay;
+        -ms-transition: @prop @duration @easing @delay;
+            transition: @prop @duration @easing @delay;
+}

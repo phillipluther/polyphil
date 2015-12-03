@@ -5,4 +5,89 @@
  */
 
 .home {
+
+    .header-wrapper {
+        background: none;
+        border: 0;
+        margin: 30px 0 0;
+
+        .logo {
+            .blocked(450px, 210px);
+            float: none;
+            background: transparent url('../images/polygoing_logoFullSize_2x.png') center center no-repeat;
+            background-size: contain;
+            margin: 0 auto;
+        }
+
+        .title-tagline {
+            font-size: 1.3em;
+            text-align: center;
+            color: @color-text-lighter;
+            padding: 12px 0;
+            border-top: 1px solid @color-header-border;
+            border-bottom: 1px solid @color-header-border;
+            margin: 36px 0 48px;
+        }
+    }
+
+    .content-wrapper {
+        //margin-top: 3%;
+    }
+
+    .feature {
+        text-align: center;
+        margin-bottom: 30px;
+
+        .feature-title {
+        }
+
+        .feature-link {
+            .blocked(auto, 100%);
+            .rounded(6px);
+            .transition(background, 90ms);
+            position: relative;
+            padding: 130px 10px 10px;
+
+            &:hover,
+            &:focus {
+                background: @color-block-hover;
+            }
+
+            &,
+            &:hover,
+            &:focus {
+                text-decoration: none;
+            }
+
+            &:active {
+                background: @color-block-active;
+            }
+        }
+
+        .feature-icon {
+            @orbSize: 120px;
+
+            .iconized(@orbSize, 60px);
+            color: #fff;
+            background: @color-accent;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            margin-left: -(@orbSize / 2);
+        }
+
+        .feature-text {
+            color: @color-text;
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .home {
+        .header-wrapper {
+            .logo {
+                .blocked(auto, 200px);
+            }
+        }
+    }
 }

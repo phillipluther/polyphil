@@ -3,6 +3,7 @@
     "browser": true
   },
   "globals": {
+    "$": false,
     "jQuery": false,
     "require": false,
     "module": false,
@@ -21,7 +22,7 @@
     "no-undef": 2,
     "no-undefined": 2,
     "no-unused-vars": [1, {"vars": "all", "args": "all"}],
-    "no-use-before-define": 1,
+    "no-use-before-define": [1, "nofunc"],
 
     "comma-dangle": [2, "never"],
     "no-cond-assign": [2, "except-parens"],
@@ -55,7 +56,6 @@
     "accessor-pairs": [2, {"getWithoutSet": false, "setWithoutGet": true}],
     "block-scoped-var": 2,
     "complexity": [1, 10],
-    "consistent-return": 2,
     "curly": [2, "all"],
     "default-case": 2,
     "dot-notation": [2, {"allowKeywords": true, "allowPattern": ""}],
@@ -134,7 +134,6 @@
     "no-inline-comments": 0,
     "no-lonely-if": 1,
     "no-mixed-spaces-and-tabs": 1,
-    "no-multiple-empty-lines": [1, {"max": 1}],
     "no-nested-ternary": 1,
     "no-new-object": 1,
     "no-restricted-syntax": 0,

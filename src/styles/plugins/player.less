@@ -1,0 +1,253 @@
+/**
+ * @file ./src/styles/plugins/player.less
+ * @description
+ * Custom styles for the podcast audio player; note these are primarily
+ * overrides for the existing plugin styles ... so if they're a bit messy I'll
+ * blame the original bossy styles of the plugin.
+ */
+
+.powerpress_player {
+    @playerTextSize: 0.9em;
+    @playerHeight: 120px;
+    @playBtnBuffer: 15px;
+    @playBtnSize: @playerHeight;
+    @playBtnOffset: @playBtnSize + @playBtnBuffer;
+    @scrubHeight: 30px;
+
+    .blocked(100%, @playerHeight);
+    margin: 24px 0 20px;
+
+    .mejs-container {
+        background: transparent;
+        height: @playerHeight !important;
+
+        &:focus {
+            outline: 0;
+            .shadow(0);
+        }
+
+        // seriously ... ? i hate you, plugins
+        * {
+            font-family: 'Arimo';
+        }
+
+        .mejs-mediaelement {
+            display: none;
+        }
+
+        .mejs-controls {
+            .blocked(100%, @playerHeight);
+            visibility: visible !important; // bug in MEJS with keyboard controls
+            background: transparent;
+            position: relative;
+            padding-left: @playBtnSize + @playBtnBuffer;
+
+            .mejs-time {
+                .flushed;
+                color: @color-player-controls;
+                font-size: @playerTextSize;
+                line-height: @scrubHeight;
+                height: @scrubHeight;
+                float: none;
+                position: absolute;
+                text-align: left;
+                top: 0;
+
+                &.mejs-currenttime-container {
+                    left: @playBtnOffset;
+                }
+
+                &.mejs-duration-container {
+                    left: @playBtnOffset + 40px;
+
+                    &::before {
+                        content: '/';
+                        margin-right: 6px;
+                    }
+                }
+            }
+
+            .mejs-volume-button,
+            .mejs-horizontal-volume-slider {
+                position: absolute;
+                top: @scrubHeight * 2;
+            }
+
+            .mejs-volume-button {
+                .blocked(@scrubHeight, @scrubHeight - 5px);
+                line-height: @scrubHeight;
+                //right: 50px;
+                left: @playBtnOffset;
+
+                &::before {
+                    .blocked(100%, 100%);
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    font-family: 'FontAwesome';
+                    text-align: left;
+                    color: @color-player-vol;
+                    font-size: 1.4em;
+                    content: '\f028';
+                }
+
+                &.mejs-unmute {
+                    &::before {
+                        content: '\f026';
+                    }
+                }
+
+                &:hover {
+                    &::before {
+                        color: @color-player-vol-hover;
+                    }
+                }
+
+                button {
+                    .flushed;
+                    .blocked(100%, 100%);
+                    background: none;
+
+                    &:hover,
+                    &:focus {
+                        outline: 0;
+                    }
+                }
+            }
+
+            .mejs-horizontal-volume-slider {
+                //right: -5px;
+                left: @playBtnOffset + 22px;
+
+                &:hover,
+                &:focus {
+                    .mejs-horizontal-volume-current {
+                        background: @color-player-vol-hover;
+                    }
+                }
+
+                .mejs-horizontal-volume-total {
+                    background: @color-player-vol-bg;
+                }
+
+                .mejs-horizontal-volume-current {
+                    background: @color-player-vol-current;
+                }
+            }
+
+            .mejs-time-rail {
+                .flushed;
+                margin-top: 30px;
+                height: @scrubHeight;
+                border-top: 1px solid @color-player-scrub-buffer;
+                background: @color-player-scrub-bg;
+
+                .mejs-time-total {
+                    .flushed;
+                    height: @scrubHeight;
+
+                    &:focus {
+                        outline: 0;
+                        .shadow(0);
+                    }
+
+                    .mejs-time-buffering,
+                    .mejs-time-loaded,
+                    .mejs-time-current,
+                    .mejs-time-handle {
+                        height: 100%;
+                    }
+
+                    .mejs-time-current {
+                        background: @color-accent;
+                    }
+
+                    .mejs-time-loaded {
+                        background: @color-player-scrub-buffer;
+                    }
+
+                    .mejs-time-float {
+                        z-index: 5;
+                        .rounded(3px);
+                        background: @color-player-scrub-bg;
+                        border: 1px solid @color-player-scrub-buffer;
+                        width: 50px;
+                        height: @scrubHeight;
+                        margin-top: -10px;
+
+                        .mejs-time-float-current {
+                            .flushed;
+                            .blocked(50px, @scrubHeight);
+                            line-height: @scrubHeight;
+                            padding: 0 10px;
+                            text-align: center;
+                        }
+
+                        .mejs-time-float-corner { display: none; }
+                    }
+                }
+            }
+
+            .mejs-playpause-button {
+                .rounded();
+                .blocked(@playBtnSize, @playBtnSize);
+                position: absolute;
+                left: 0;
+                top: 0;
+                background: @color-accent;
+                cursor: pointer;
+                margin-right: 15px;
+                z-index: 1;
+
+                &:hover,
+                &:focus {
+                    background: @color-accent-hover;
+                }
+
+                &:active {
+                    background: @color-accent-active;
+                }
+
+                &::before {
+                    .iconized(@playBtnSize, ceil(@playBtnSize * 0.5));
+                    font-family: 'FontAwesome';
+                    content: '\f04b';
+                    color: #fff;
+                }
+
+                &.mejs-pause::before {
+                    content: '\f04c';
+                }
+
+                button {
+                    .blocked(100%, 100%);
+                    .flushed;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    &,
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        background: transparent;
+                        outline: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.powerpress_links {
+    @linkSize: 0.9em;
+    font-size: @linkSize;
+
+    // including both if they ever fix this typo in the plugin
+    &.powerpress_subsribe_links,
+    &.powerpress_subsribe_links {
+        //padding-bottom: 24px;
+        margin-bottom: 24px;
+        //border-bottom: 1px solid @color-player-scrub-border;
+    }
+}

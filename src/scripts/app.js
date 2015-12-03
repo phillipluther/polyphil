@@ -6,6 +6,20 @@
 
 'use strict';
 
+var
+    jetpackSharing = require('./jetpackSharing'),
+    thumbsUpDown = require('./thumbsUpDown'),
+    comments = require('./comments'),
+    subscribe = require('./subscribe'),
+    searchToggle = require('./searchToggle');
+
 module.exports = (function() {
-    console.log('App scripts successfully bootstrapped.');
+
+    $(document).ready(function() {
+        jetpackSharing.init();
+        thumbsUpDown.init();
+        comments.init();
+        subscribe.init();
+        searchToggle.init();
+    });
 })();

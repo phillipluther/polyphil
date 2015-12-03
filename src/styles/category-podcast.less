@@ -1,0 +1,107 @@
+/**
+ * @file ./src/styles/category-podcast.less
+ * @description
+ * Our styles for our podcast category listings.
+ */
+
+.category-podcast {
+    @categoryThumb: 120px;
+    @albumArtHeight: 270px;
+    @metaHeight: 50px;
+
+    .category-details {
+        @buffer: 40px;
+
+        margin-top: @buffer;
+        margin-bottom: @buffer;
+    }
+
+    .category-title {
+        margin-top: 0;
+    }
+
+    .category-image {
+        .blocked(@categoryThumb, @categoryThumb);
+        float: left;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .subscribe-links-wrapper {
+        margin-top: 18px;
+
+        .subscribe-link {
+            margin-right: 18px;
+        }
+    }
+
+    .post-link-wrapper {
+        .blocked(100%, auto);
+        position: relative;
+        padding-top: @albumArtHeight + @metaHeight;
+        margin-bottom: 45px;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+
+            .post-icon {
+                opacity: 1;
+                background-color: @color-accent;
+            }
+        }
+
+        .post-thumbnail {
+            .blocked(100%, @albumArtHeight);
+            .rounded;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .post-icon {
+            .iconized(120px, 72px);
+            position: absolute;
+            left: 50%;
+            top: 20%;
+            margin-left: -(60px);
+            border: 5px solid #fff;
+            color: #fff;
+            opacity: 0.5;
+        }
+
+        .post-title {
+            margin-top: 0;
+            font-size: 1.1em;
+            line-height: 1.25em;
+        }
+
+        .post-details {
+            line-height: @metaHeight;
+            position: absolute;
+            top: @albumArtHeight;
+            left: 0;
+        }
+
+        .episode-number {
+            font-family: 'ArimoBold';
+            margin-right: 5px;
+        }
+
+        .timestamp {
+            margin-left: 5px;
+        }
+    }
+}
+
+@media (max-width: 1019px) and (min-width: 768px) {
+    .category-podcast {
+        .content {
+            .category-image {
+                width: 115%;
+            }
+        }
+    }
+}

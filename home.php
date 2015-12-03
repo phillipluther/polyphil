@@ -11,11 +11,11 @@
     get_header(); 
 ?>
 
-    <div class="content-wrapper">
-        <main class="content">
+    <div class="content-wrapper container">
+        <main class="content row">
 
             <div class="feature-wrapper">
-                <div class="feature podcast">
+                <div class="feature podcast col-xs-6 col-sm-3 col-lg-2 col-lg-offset-1">
                     <a href="/category/podcast" class="feature-link">
 
                         <h2 class="feature-title">Podcast</h2>
@@ -25,31 +25,31 @@
                     </a>
                 </div>
 
-                <div class="feature blog">
+                <div class="feature blog col-xs-6 col-sm-3 col-lg-2">
                     <a href="/category/blog" class="feature-link">
 
                         <h2 class="feature-title">Blog</h2>
-                        <p class="feature-text">I write about various topics. Mostly, I blog about games and game culture when I don’t have a mic handy.</p>
+                        <p class="feature-text">I write about various topics. Mostly, I blog about games and game culture when I don't have a mic handy.</p>
 
                         <span class="feature-icon fa fa-pencil"></span>
                     </a>
                 </div>
 
-                <div class="feature youtube">
+                <div class="feature youtube col-xs-6 col-sm-3 col-lg-2 col-lg-offset-1">
                     <a href="#" class="feature-link">
 
                         <h2 class="feature-title">YouTube</h2>
-                        <p class="feature-text">I make game commentary videos. They're almost exclusively about [Demons/Dark] Souls or Souls-esque games.</p>
+                        <p class="feature-text">I make game commentary videos. They're almost exclusively about Demons/Dark Souls'esque games.</p>
 
                         <span class="feature-icon fa fa-youtube-play"></span>
                     </a>
                 </div>
 
-                <div class="feature youtube">
+                <div class="feature youtube col-xs-6 col-sm-3 col-lg-2">
                     <a href="#" class="feature-link">
 
                         <h2 class="feature-title">Twitter</h2>
-                        <p class="feature-text">I tweet about games and not about games. It’s pretty infrequent, but random thoughts and quips are always fun.</p>
+                        <p class="feature-text">I infrequently tweet about games and not about games. Random quips can be fun and funny in moderation.</p>
 
                         <span class="feature-icon fa fa-twitter"></span>
                     </a>

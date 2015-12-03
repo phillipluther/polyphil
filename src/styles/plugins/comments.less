@@ -1,0 +1,219 @@
+/**
+ * @file ./src/styles/plugins/comments.less
+ * @description
+ * This sheet tries to wrangle/make sense of the CSS delivered as part of the
+ * wpDiscuz Super Charged Comments pluging. This is an AWESOME plugin as far
+ * as providing functionality. 
+ *
+ * However ... it has what is, perhaps, the worst CSS ever delivered with a
+ * Wordpress plugin associated with it. Everything is styled off of IDs and
+ * there are !important defs galore, so getting it to meld into a theme is an
+ * exercise in frustration.
+ */
+
+// styling off the wrapper ID to override the plugin specificity bossiness
+#comments {
+    margin-top: 30px;
+    border-top: 1px solid @color-header-border;
+
+    #wc-comment-header {
+        .flushed;
+        font-size: 1.5em;
+        margin: 40px 0 12px;
+        //color: @color-text-light;
+    }
+
+    #wc_show_hide_loggedin_username {
+        .flushed;
+        padding: 0 0 12px;
+    }
+
+    #wpcomm {
+        .flushed;
+        border: 0;
+        font-size: inherit;
+
+        hr,
+        .wc_notification_checkboxes,
+        .wc-comment-bar {
+            display: none !important;
+        }
+
+        .wc_comm_submit {
+            border: 0;
+            font-size: 1em;
+            margin-left: 65px;
+        }
+
+        .wpdiscuz-item {
+            .flushed;
+            width: auto;
+            margin-left: 65px;
+            margin-bottom: 12px;
+            float: none;
+            min-width: 180px;
+
+            .wc_field_input_email,
+            .wc_field_input {
+                .rounded;
+                width: 100%;
+                height: auto;
+                padding: 5px 10px;
+            }
+        }
+
+        .wc-field-avatararea {
+            width: 50px !important;
+            height: 50px !important;
+
+            .avatar {
+                .flushed;
+                width: 100% !important;
+                height: 100% !important;
+                display: block !important;
+            }
+        }
+
+        .alert {
+            text-transform: capitalize;
+            margin-top: -5px;
+        }
+
+        .wpdiscuz-front-actions {
+            background: transparent;
+            margin: 24px 0 18px;
+            padding: 0 0 12px;
+            border: 0;
+            border-bottom: 1px solid @color-header-border;
+            text-align: left;
+            text-transform: capitalize;
+
+            .wpdiscuz-sort-buttons {
+                font-size: 0.9em !important;
+            }
+
+            .wpdiscuz-sort-button {
+                color: @color-accent;
+
+                &.wpdiscuz-sort-button-active {
+                    color: @color-text-light !important; // you little bitch plugin!
+                }
+            }
+        }
+
+        .wc-thread-wrapper {
+            @avatarOffset: 66px;
+
+            .flushed;
+            margin-top: 12px;
+
+            .wc-comment-link {
+                display: none;
+            }
+
+            .wc-comment-header {
+                margin-bottom: 12px;
+            }
+
+            .wc-comment-author,
+            .wc-comment-date {
+                float: none;
+                text-align: left;
+            }
+
+            .wc-comment-author {
+                font-size: 1.3em;
+                color: @color-heading;
+                width: auto !important;
+
+                a {
+                    font-size: inherit;
+                    color: inherit;
+                }
+            }
+
+            .wc-comment-date {
+                font-size: 0.8em;
+                color: @color-text-lighter;
+            }
+
+            .wc-comment-left {
+                text-align: left;
+                width: @avatarOffset;
+
+                .avatar {
+                    .flushed;
+                }
+
+                .wc-comment-label {
+                    .flushed;
+                    width: 48px;
+                    margin-top: 3px;
+                    line-height: 25px !important;
+                    background: @color-text-lighter;
+
+                    &.wc-blog-post_author {
+                        background: @color-accent;
+                    }
+                }
+            }
+
+            .wc-comment-right {
+                .flushed;
+                margin-left: @avatarOffset;
+                background: transparent;
+                border: 0;
+
+                .wc-comment-text {
+                    .flushed;
+                    font-size: 1em !important;
+                    line-height: 1.5;
+
+                    p {
+                        margin-bottom: 12px;
+                    }
+                }
+
+                .wpdiscuz-readmore {
+                    color: @color-accent;
+
+                    &:hover,
+                    &:focus {
+                        color: @color-accent-hover;
+                    }
+                }
+            }
+
+            .wc-comment-footer {
+                font-family: 'Arimo';
+                font-size: 0.9em;
+                margin-top: 18px;
+                margin-bottom: 30px;
+
+                .wc-vote-result {
+                    border: 1px solid @color-header-border;
+                    background: @color-off-white;
+                    color: @color-text;
+                }
+
+                .wc-reply-link,
+                a {
+                    font-family: 'ArimoBold';
+                    font-weight: normal;
+                    color: @color-accent;
+
+                    &:hover,
+                    &:focus {
+                        color: @color-accent-hover;
+                    }
+                }
+            }
+
+            .wc-reply {
+                .flushed;
+                margin-left: @avatarOffset;
+            }
+        }
+
+    }
+}

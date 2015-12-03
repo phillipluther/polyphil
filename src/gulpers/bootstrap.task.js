@@ -35,26 +35,35 @@ var
         manifest: 'bootstrap.less'
     };
 
-// copy our source JS files to build directory
+// copy our source JS files to build directory; we have a separate task for
+// including jQuery ... which is a dependency of Bootstrap's JS. if assuming
+// jQuery is available becomes problematic, consider pulling it in here as an
+// explicity dep.
 gulp.task('bootstrap:js', function() {
     return gulp.src(conf.sources.js)
         .pipe(gulp.dest(conf.dest.js));
 });
 
 // copy our source LESS files to the temporary build directory
-gulp.task('bootstrap:less', function() {
+gulp.task('bootstrap:copy', function() {
     return gulp.src(conf.sources.css)
         .pipe(gulp.dest(conf.dest.less));
 });
 
-// lessification and script packaging (via dep task)
-gulp.task('bootstrap:build', ['bootstrap:less', 'bootstrap:js'], function() {
+// lessification packaging to create a compiled Bootstrap stylesheet
+gulp.task('bootstrap:less', ['bootstrap:copy'], function() {
     return gulp.src(path.join(conf.dest.less, conf.manifest))
         .pipe(less())
         .pipe(gulp.dest(conf.dest.css));
 });
 
-// build and clean up any tmp files
-gulp.task('bootstrap', ['bootstrap:build'], function() {
+// build and clean up any tmp files for our CSS
+gulp.task('bootstrap:css', ['bootstrap:less'], function() {
     del(conf.dest.less);
 });
+
+// a generic build command that packages both our CSS and JS files
+gulp.task('bootstrap', [
+    'bootstrap:css', 
+    'bootstrap:js'
+]);
